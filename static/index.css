@@ -1,109 +1,107 @@
-header {
-    background-color: #ffe194;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0;
-}
+/* *******************global******************* */
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-body {
-    background: url("https://nabacam-movies.vercel.app/assets/bg.png") center center / cover no-repeat;
-}
-
-/* 기본 설정값과 같아서 반폭해서 설정해줄 필요가 없다. 그러면 왜? css 엘리먼트 창에 나타난걸까? */
-/* h1 {
-   display: block;
-   font-size: 2em;
-   margin-block-start: 0.67em;
-   margin-block-end: 0.67em;
-   margin-inline-start: 0px;
-   margin-inline-end: 0px;
-   font-weight: bold;
-}  */
-
-.search {
-    width: 100%;
+/* *******************header******************* */
+header {
+    background-color: #950101;
     display: flex;
     justify-content: center;
-    padding: 20px 0;
-    border-bottom: 1px solid black;
+    align-items: center;
+    padding: 30px 0;
+    background-image: url(../static/img/movie.jpeg);
+    background-size: cover;
+    background-position: 0px -85px;
+    background-repeat: no-repeat;
 }
 
-label {
-    cursor: default;
+header > a > img {
+    background-image: url(../static/img/logo1.png), 
 }
 
-.search label {
-    font-size: 25px;
+
+/* *******************body******************* */
+
+body {
+    background-color:#000000;
+    
 }
+
+/* ***************search area**************** */
+
+.search {
+    width: 350px;
+    height: 70px;
+
+    background-color: #F9F5F6;
+    color: #000000;
+    font-size: 20px;
+
+    border-radius: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+
+    opacity: 1;
+
+    position: fixed;
+    left: 50%;
+    bottom: 0%;
+    transform: translate(-50%, -50%);
+
+    cursor: pointer;
+}
+
+/* .search:hover {
+    background-color: #F9F5F6;
+    color: #000000;;
+    font-weight: 700;
+    border: 5px solid transparent;
+    box-sizing: border-box;
+
+    opacity: 1;
+} */
 
 .search input {
     margin-left: 20px;
-    min-width: 200px;
-    padding: 5px 10px;
-}
+    min-width: 250px;
 
-/* input[type="text"] {
-    padding: 100px 100px;
-} */
+    font-size: 20px;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+
+    padding: 5px 10px;
+    background: none;
+    color: #000000;
+}
+input:focus { outline: none; }
 
 
 .search button {
-    margin-left: 10px;
-    padding: 5px;
+    margin-left:0px;
+    padding: 0px;
+    background: url(../static/icon/search.png) no-repeat;
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    
+    position: relative;
+    right: 5px;
+    top: 6px; ;
 }
 
-form {
-    display: block;
-    margin-top: 0em;
-}
 
 
-
-/* 기본 설정값과 같아서 반폭해서 설정해줄 필요가 없다. 그러면 왜? css 엘리먼트 창에 나타난걸까?*/
-/* input {
-    writing-mode: horizontal-tb !important;
-     font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-variant-alternates: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
-    font-family: ;
-    font-optical-sizing: ;
-    font-kerning: ;
-    font-feature-settings: ;
-    font-variation-settings: ; 
-    text-rendering: auto;
-    color: fieldtext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: start;
-    appearance: auto;
-    -webkit-rtl-ordering: logical;
-    cursor: text;
-    background-color: field;
-    margin: 0em;
-    padding: 1px 2px;
-    border-width: 2px;
-    border-style: inset;
-    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
-    border-image: initial;
-} */
+/* ******************card area****************** */
 
 .card-list {
     display: grid;

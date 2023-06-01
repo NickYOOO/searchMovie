@@ -1,15 +1,10 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() { // 스크립트가 최상단에 있기 때문에, html 모든 요소가 파싱되고, 로드된 후에 이벤트를 발생 시키기 위함.
     searchMovies();
 
-    // function handleSearch(event) {
-    //     event.preventDefault();
-    //     const searchInput = document.getElementById('search-input').value;
-    //     if (searchInput.trim() !== '') {
-    //         searchMovies(searchInput);
-    //     }
-    // }
     
     function searchMovies() {
+
+        // TMDB Api
         const options = {
             method: 'GET',
             headers: {
@@ -17,8 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNmM2ODZkMDdhMTcxNDUyZWUyYzM2MGUwODFjNjAxMyIsInN1YiI6IjY0NzRjMGFhNWNkMTZlMDBiZjEyNDQ2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qgYpZS6S6GHYU8eq2rRevqoZz5g80tZ7hZ5KJ3soHVU'
             }
         };
-    
-        fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
+        const url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
+        
+        // api 데이터 긇어오기
+        fetch(url, options)
             .then(response => response.json())
             .then(data => {
                 let rows = data['results'];
@@ -44,11 +41,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 // 클릭 이벤트 핸들러 추가 -> alert id
-                const movieCards = document.querySelectorAll('.movie-card');
+                const movieCards = document.querySelectorAll('.movie-card'); // :CSS 선택자를 이용하여 모든 요소를 선택합니다.
                 movieCards.forEach(card => {
                     card.addEventListener('click', function() {
-                        let movieId = this.getAttribute('data-id')
-                        console.log('영화 아이디->', this)
+                        let movieId = this.getAttribute('data-id') // : 해당 요소의 속성 값을 가져옵니다.
                         alert(`영화 id: ${movieId}`);
                     });
                 });
@@ -57,47 +53,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
-
-
-
-// *********************실수로 만든 jquery 를 이용한 코드 ************************
-
-//  $(document).ready(function () {
-//         listing();
-//     });
-
-// function listing() {
-
-// const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNmM2ODZkMDdhMTcxNDUyZWUyYzM2MGUwODFjNjAxMyIsInN1YiI6IjY0NzRjMGFhNWNkMTZlMDBiZjEyNDQ2OSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qgYpZS6S6GHYU8eq2rRevqoZz5g80tZ7hZ5KJ3soHVU'
-//     }
-//   };
-  
-//   fetch('https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1', options)
-//     .then(response => response.json())
-//     .then(data => {
-//         let rows = data.results;
-//         $('.card-list').empty();
-
-//         rows.forEach(movie => {
-//             let title = movie.title;
-//             let overview = movie.overview;
-//             let poster_path = movie.poster_path;
-//             let vote_average = movie.vote_average;
-    
-//             let temp_html = ` 
-//             <div class="movie-card">
-//             <img src="https://image.tmdb.org/t/p/w500${poster_path}">
-//             <h3>${title}</h3>
-//             <p>${overview}</p>
-//             <p>Rating: ${vote_average}</p>
-//             </div>
-//              `;
-//             $('.card-list').append(temp_html);
-//         });
-//     })
-//     .catch(err => console.error(err));
-// };
