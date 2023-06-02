@@ -1,3 +1,5 @@
+// search api 를 적용한 코드
+
 function handleSearch(event) {
     event.preventDefault(); // 폼 제출 기본 동작 방지
 
@@ -30,7 +32,7 @@ function handleSearch(event) {
             if (searchResults.length === 0) {
                 alert('검색 결과가 없습니다.');
             } else {
-                const cardList = document.querySelector('.card-list');
+                const cardList = document.querySelector('.cardList');
                 cardList.innerHTML = '';
 
                 searchResults.forEach((result) => {
@@ -56,7 +58,7 @@ function handleSearch(event) {
                 movieCards.forEach(card => {
                     card.addEventListener('click', function () {
                         let movieId = this.getAttribute('data-id');
-                        alert(`You clicked on movie ID: ${movieId}`);
+                        alert(`ID: ${movieId}`);
                     });
                 });
             }

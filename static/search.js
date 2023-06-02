@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function handleSearch(event) {
         event.preventDefault(); // 폼 제출 기본 동작 방지
 
-        const searchInput = document.getElementById('search-input');
+        const searchInput = document.getElementById('searchInput');
         const query = searchInput.value.toLowerCase()
 
         console.log(query)
@@ -34,11 +34,11 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 const searchResults = data['results'];
                 // 전체 데이터 들 제목을 소문자로 변환
-                let title_list = searchResults.map((item) => {
+                let titleList = searchResults.map((item) => {
                     return item.title.toLowerCase()
                 })
                 // query검색어와  위에 값이 포함 되어 있는 타이틀 반환
-                let find_title = title_list.filter((item) =>{
+                let find_title = titleList.filter((item) =>{
                     return item.includes(query)
                 }) ;
                 
@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let find_index = []
 
                 for (let i in find_title){
-                    let idx = title_list.findIndex((item) => {
+                    let idx = titleList.findIndex((item) => {
 
                         return item === find_title[i]
                     });
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     alert('검색 결과가 없습니다.');
                 // 값이 있으면 ->     
                 } else {
-                    const cardList = document.querySelector('.card-list');
+                    const cardList = document.querySelector('.cardList');
                     // 전체 데이터에서 일치한 데이터 뽑아오기 
 
                     const match_movie = []

@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', function() { // 스크립트가 �
             .then(response => response.json())
             .then(data => {
                 let rows = data['results'];
-                const cardList = document.querySelector('.card-list');
+                const cardList = document.querySelector('.cardList');
                 cardList.innerHTML = '';
-
+                
+                console.log(data)
                 rows.forEach((a) => {
                     let _title = a['title'];
                     let _overview = a['overview'];
@@ -32,9 +33,9 @@ document.addEventListener('DOMContentLoaded', function() { // 스크립트가 �
                     let temp_html = `
                         <div class="movie-card" data-id="${_id}">
                             <img src="https://image.tmdb.org/t/p/w500${_poster_path}">
-                            <h3>${_title}</h3>
-                            <p>${_overview}</p>
-                            <p>Rating: ${_vote_average}</p>
+                            <h3 class ="info-title">${_title}</h3>
+                            <p class ="info-overview">${_overview}</p>
+                            <p class ="info-vote_average">Rating: ${_vote_average}</p>
                         </div>
                     `;
                     cardList.insertAdjacentHTML('beforeend', temp_html);
@@ -46,6 +47,35 @@ document.addEventListener('DOMContentLoaded', function() { // 스크립트가 �
                     card.addEventListener('click', function() {
                         let movieId = this.getAttribute('data-id') // : 해당 요소의 속성 값을 가져옵니다.
                         alert(`영화 id: ${movieId}`);
+                    });
+                });
+
+                $('.movie-card').click(function () {
+                    let detail_modal = $('.detail-overlay');
+    
+                    let id = $(this).data('num');
+    
+                    $('#overlay').attr('data-id', id);
+    
+                    let all_id = rows.map(rows => rows['_id']);
+    
+                    let indexNum = $.inArray(id, all_id);
+    
+                    let this_data = rows[indexNum]
+    
+                    let $title = this_data['title']
+                    let $overview = this_data['overview'];
+                    let $poster_path = this_data['poster_path'];
+                    let $vote_average = this_data['vote_average'];
+                    let _id = this_data['num'];
+    
+                    $('.movie-card img').attr('src', $poster_path);
+                    $('.info-title').text($title);
+                    $('.info-overview').text($overview);
+                    $('.info-vote_average').text($vote_average);
+    
+                    detail_modal.css({
+                        'display': 'block'
                     });
                 });
             })

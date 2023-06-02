@@ -30,6 +30,19 @@ body {
     
 }
 
+/* *******************overlay******************* */
+.datail-overlay {
+    height: 100%;
+    width: 100%;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
 /* ***************search area**************** */
 
 .search {
@@ -103,7 +116,7 @@ input:focus { outline: none; }
 
 /* ******************card area****************** */
 
-.card-list {
+.cardList {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     justify-content: center;

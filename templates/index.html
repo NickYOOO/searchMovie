@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,44 @@
     <title>🎬 최고 평점 영화 </title>
 
     <link rel="stylesheet" href="../static/index.css" />
-  
-    <script src="../modules/list.js"></script>
-    <script src="../modules/search.js"></script>
-    <!-- <script src="../static/search(2).js"></script>   -->
+    
+    
+    <!-- (1) search.js , list.js 스크립트를 이용함 -->
+    <!-- <script src="../static/list.js"></script>
+        <script src="../static/search.js"></script> -->
+
+
+    <!-- (2) TMDB에서 제공하는 search api를 이용한 스크립트 -->
+    <!-- <script src="../static/searchApi.js"></script>   -->
+
+
+    <!-- (3) Modules화 한 스크립트 (코드 리팩토링 ) -->
+    <script type="module" src="/modules/main.js"></script>
 
 </head>
 
 <body>
+    <!---------- header area ---------->
+
     <header>
         <A href="index.html">
-        <img src="../static/img/logo1.png" alt="banner">
+            <img src="../static/img/logo1.png" alt="banner">
         </A>
-        
     </header>
-    <!-- <form class="search" name = "search" onsubmit="handleSearch(event)"> -->
-        
-        <section class="card-list">
-            
-        </section>
-        <form class="search" name = "search">
-            <input type="search" id="search-input" placeholder="영화 제목을 검색해 보세요" autofocus>
-            <button type="submit" id="search-btn"></button>
+
+    <!---------- list area ---------->
+
+    <section class="cardList" id ="cardList">
+
+    </section>
+
+
+        <!---------- footer area ---------->
+        <!-- <form class="search" name = "search" onsubmit="handleSearch(event)"> -->
+        <form class="search" name="search">
+            <input type="search" id="searchInput" placeholder="영화 제목을 검색해 보세요" autofocus>
+            <button type="submit" id="searchBtn" title="submit"></button>
         </form>
 </body>
+
 </html>
