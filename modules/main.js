@@ -11,7 +11,7 @@ const fetchMovie = async function () {
   return movies;
 };
 
-// card list
+// card list 카드 목록 처리
 async function cardList(arr) {
   const movies = await fetchMovie();
   if (!arr) {
@@ -24,7 +24,7 @@ async function cardList(arr) {
 }
 cardList();
 
-//  Search movie
+//  Search movie 검색기능 처리
 const $frm = document.search;
 $frm.addEventListener("submit", findMovie);
 async function findMovie(e) {
@@ -40,6 +40,8 @@ async function findMovie(e) {
 
   if (matchMovies.length === 0) {
     alert("검색어를 확인해 주세요.");
+  } else if (userMovieTitle === ""){
+    alert("검색어를 입력해 주세요.")
   } else {
     cardList(matchMovies);
   }
