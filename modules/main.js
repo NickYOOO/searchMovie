@@ -56,11 +56,11 @@ img.addEventListener("click", () => {
 //  Click card
 const clickCard = document.getElementById("cardList");
 clickCard.addEventListener("click", (e) => {
-  let card = e.target.parentNode;
+  let card = e.target;
   if (card.className !== "movie-card") {
-    card = card.parentNode;
+    card = e.target.parentNode
   }
-
+  
   const contentId = card.getAttribute("id");
   if (!contentId) {
     return false;
@@ -75,5 +75,5 @@ clickCard.addEventListener("click", (e) => {
 //   if(f.keyCode == "enter"){ //javascript에서는 13이 enter키를 의미
 //       search.submit();
 //   };
-// }
+// }  
 // key code 메소드 단점
