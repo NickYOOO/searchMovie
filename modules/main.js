@@ -56,12 +56,12 @@ img.addEventListener("click", () => {
 //  Click card
 const clickCard = document.getElementById("cardList");
 clickCard.addEventListener("click", (e) => {
-  let card = e.target;
-  if (card.className !== "movie-card") {
-    card = e.target.parentNode
+  let cardClick = e.target;
+  if (cardClick.className !== "movie-card") {
+    cardClick = e.target.parentNode
   }
   
-  const contentId = card.getAttribute("id");
+  const contentId = cardClick.getAttribute("id");
   if (!contentId) {
     return false;
   }
